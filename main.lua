@@ -8,8 +8,10 @@ local charger = 1
 local solar = 2
 local redstone = 3
 
-local function checkEnergy()
-	if computer.energy() < 19000 then
+local energyLevelToCharge = 19000
+
+local function checkEnergy() -- Check battery, if robot is low it places a charger
+	if computer.energy() < energyLevelToCharge then
 		robot.select(charger)
 		robot.place(sides.front)
 		robot.move(sides.top)
@@ -37,7 +39,7 @@ local function checkEnergy()
 	end
 end
 
-local function rotate(direction)
+local function rotate(direction) -- Rotate the robot to the given direction (sides.north, side.south, ...)
 	facing = tonumber(nav.getFacing())
 	print("Current facing:" .. facing)
 	while facing ~= direction do
@@ -47,14 +49,14 @@ local function rotate(direction)
 	end
 end
 
-local function move(side, ammount)
+local function move(side, ammount) -- Move the robot a certain ammount of blocks (sides.left, sides.right, ...)
 	for i = 0,ammount,1 do
 		checkEnergy()
 		robot.move(side)
 	end
 end
 
-local function getNextGuardian(x)
+local function getNextGuardian(x) -- Get last visited Guardian from file
 	file = io.open("guardianList", "r")
 	if file ~= nul then
 		file:write("1")
@@ -63,7 +65,7 @@ local function getNextGuardian(x)
 	content = file:read("*all")
 	file:close()
 
-	lastFight = tonumber(content) * 10000
+	lastFight = tonumber(content) * 10000 -- Last fights are saved in file as number from 1 to x (to multiply by 10 000 to get the actual guardian position)
 	return (lastFight - x)
 end
 
