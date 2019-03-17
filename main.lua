@@ -3,12 +3,22 @@ local computer = require("computer")
 local sides = require("sides")
 local robot = component.robot
 local energyLevelToCharge = 19000
+local distToChaos = 3000 -- on my game it's every 3000 blocks
 
+local cx = 0 -- which chaos we are at, if cx was 1 we should go to cx * distToChaos , 131(height of first pillar) , 0
+local cz = 0
 
-local x=0
-local y=0
-local z=0
-local direction = 3
+local towerHeight = 131
+
+local east = 0 --0 = east 1=south 2=west 3=north
+local south = 1
+local west = 2
+local north = 3
+
+local x=0 -- this is what you have to change when you place the bot
+local y=0 --
+local z=0 -- 
+local direction = north --
 
 local checkEnergy
 
@@ -21,11 +31,13 @@ local function moveForward(amount) -- Move the robot a certain amount of blocks 
 			checkEnergy() -- we should be checking energy when we move to make sure that we don't run out in long moves
 		end
 			
-		if robot.move(sides.front) == nil then 
+		while robot.move(sides.front) == nil do 
 			
-		print("robot is stuck, insert whatever you want him to do here") 
+		print("robot might be stuck, insert whatever you want him to do here")
+			robot.swing(sides.front)
 		
-		else if direction == 0 then -- updating his locals coords
+		end
+		if direction == 0 then -- updating his locals coords
 				x = x+1
 			else if direction == 1 then
 					z = z+1
@@ -34,7 +46,7 @@ local function moveForward(amount) -- Move the robot a certain amount of blocks 
 						else if direction == 3 then
 							z = z-1
 							
-						end
+						
 					end
 				end
 			end
@@ -51,11 +63,11 @@ local function moveUp(amount) -- Move the robot a certain amount of blocks up wh
 			checkEnergy() -- we should be checking energy when we move to make sure that we don't run out in long moves
 		end
 			
-		if robot.move(sides.up) == nil then 
-			print("robot is stuck, insert whatever you want him to do here")
-		else
-			y = y+1
+		while robot.move(sides.up) == nil do 
+			print("robot might be stuck, insert whatever you want him to do here")
+			robot.swing(sides.up)
 		end
+			y = y+1
 	end
 end
 
@@ -68,11 +80,12 @@ local function moveDown(amount) -- Move the robot a certain amount of blocks dow
 			checkEnergy() -- we should be checking energy when we move to make sure that we don't run out in long moves
 		end
 			
-		if robot.move(0) == nil then 
-			print("robot is stuck, insert whatever you want him to do here") 
-		else
-			y = y-1
+		while robot.move(0) == nil do 
+			print("robot might be stuck, insert whatever you want him to do here")
+			robot.swing(sides.down)
 		end
+			y = y-1
+		
 	end
 end
 
@@ -192,10 +205,111 @@ local function init()
 	print("Localizing Chaos Guardian")
     print("Subscribe to FuzeIII") -- In case the robot does not survive, "Subscribe to FuzeIII" will be its last words of wisdom
 	
-	
-	moveTo(50,5,5)
-	
 	print("My pos x,y,z,dir: ",x,y,z,direction)
 end
 
+local function moveToNextChaos()
+	cx = cx+1
+	moveTo(cx*distToChaos-100,towerHeight + 30,cz*distToChaos)--we fly safe hight
+	moveTo(cx*distToChaos-100,towerHeight,cz*distToChaos) -- and then go to a good y pos
+end
+
+local function killATower() -- healer can't be one shot by the draconic staff of power and can't be spam attack
+	
+	for i = 1,5,1 do
+			
+		robot.swing(sides.front)
+		os.sleep(5)
+	
+	end
+		moveUp(5)
+
+end
+
+local function killAllTower() -- killing all external tower of the island
+	
+	moveTo(cx*distToChaos-89,towerHeight+5,cz*distToChaos+21)--fly safe remember
+	moveTo(cx*distToChaos-89,towerHeight,cz*distToChaos+21)
+	rotateTo(east)
+	killATower()
+	
+	
+	moveTo(cx*distToChaos-71,towerHeight+5,cz*distToChaos+57)
+	moveTo(cx*distToChaos-71,towerHeight,cz*distToChaos+57)
+	rotateTo(east)
+	killATower()
+	
+	moveTo(cx*distToChaos-39,towerHeight+5,cz*distToChaos+81)
+	moveTo(cx*distToChaos-39,towerHeight,cz*distToChaos+81)
+	rotateTo(east)
+	killAToxer()
+	
+	moveTo(cx*distToChaos-2,towerHeight+5,cz*distToChaos+90)
+	moveTo(cx*distToChaos-2,towerHeight,cz*distToChaos+90)
+	rotateTo(east)
+	killATower()
+	
+	moveTo(cx*distToChaos+37,towerHeight+5,cz*distToChaos+81)
+	moveTo(cx*distToChaos+37,towerHeight,cz*distToChaos+81)
+	rotateTo(east)
+	killATower()
+	
+	moveTo(cx*distToChaos+68,towerHeight+5,cz*distToChaos+55)
+	moveTo(cx*distToChaos+68,towerHeight,cz*distToChaos+55)
+	rotateTo(east)
+	killATower()
+	
+	moveTo(cx*distToChaos+85,towerHeight+5,cz*distToChaos+19)
+	moveTo(cx*distToChaos+85,towerHeight,cz*distToChaos+19)
+	rotateTo(east)
+	killATower()
+	
+	moveTo(cx*distToChaos+85,towerHeight+5,cz*distToChaos-20)
+	moveTo(cx*distToChaos+85,towerHeight,cz*distToChaos-20)
+	rotateTo(east)
+	killATower()
+	
+	moveTo(cx*distToChaos+70,towerHeight+5,cz*distToChaos-54)
+	moveTo(cx*distToChaos+70,towerHeight,cz*distToChaos-54)
+	rotateTo(north)
+	killATower()
+	
+	moveTo(cx*distToChaos+38,towerHeight+5,cz*distToChaos-79)
+	moveTo(cx*distToChaos+38,towerHeight,cz*distToChaos-79)
+	rotateTo(north)
+	killATower()
+	
+	moveTo(cx*distToChaos,towerHeight+5,cz*distToChaos-87)
+	moveTo(cx*distToChaos,towerHeight,cz*distToChaos-87)
+	rotateTo(north)
+	killATower()
+	
+	moveTo(cx*distToChaos-37,towerHeight+5,cz*distToChaos-80)
+	moveTo(cx*distToChaos-37,towerHeight,cz*distToChaos-80)
+	rotateTo(west)
+	killATower()
+	
+	moveTo(cx*distToChaos-68,towerHeight+5,cz*distToChaos-55)
+	moveTo(cx*distToChaos-68,towerHeight,cz*distToChaos-55)
+	rotateTo(west)
+	killATower()
+	
+	moveTo(cx*distToChaos-85,towerHeight+5,cz*distToChaos-18)
+	moveTo(cx*distToChaos-85,towerHeight,cz*distToChaos-18)
+	rotateTo(west)
+	killATower()
+	
+
+end
+
 init()
+moveToNextChaos()
+
+print("starting tower killing")
+
+killAllTower()
+
+
+--le code fonctionne mais le problème est que le dragon casse le robot lorsque le robot essaye de casser un healer donc je me suis arreter ici en attendant que tu nous propose une facon de tuer les healers
+
+
