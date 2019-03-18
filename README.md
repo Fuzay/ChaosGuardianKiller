@@ -17,11 +17,11 @@ Currently the main challenge is to find a way for the robot to break the shields
 
 If you want to help work on the project without installing the whole modpack, here's the current mods you need to install:
 
-`BrandonsCore-1.10.2-2.1.11.127-universal.jar
-CodeChickenLib-1.10.2-2.5.9.283-universal.jar
-Draconic-Evolution-1.10.2-2.1.5.262-universal.jar
-HammerCore-1.10.2-1.9.4.3.jar
-OpenComputers-MC1.10.2-1.6.2.7.jar
-SolarFluxReborn_1.10.2-2.17r.jar`
+`BrandonsCore-1.10.2-2.1.11.127-universal.jar`
+`CodeChickenLib-1.10.2-2.5.9.283-universal.jar`
+`Draconic-Evolution-1.10.2-2.1.5.262-universal.jar`
+`HammerCore-1.10.2-1.9.4.3.jar`
+`OpenComputers-MC1.10.2-1.6.2.7.jar`
+`SolarFluxReborn_1.10.2-2.17r.jar`
 
-You can submit pull requests, I will review them when I got time.
+You can submit pull requests, I will review them when I got time. Commit should be done in **english**.
