@@ -4,10 +4,10 @@ Little Project to automate Draconic Evolution Guardian fight. This project has b
 
 ## TODO
 
-* Make the robot travel from anywhere to the dragon (multiples of 10 000) **done (almost)**
+* Make the robot travel from anywhere to the dragon (multiples of 10 000) **done**
 * Make the robot charge itself when it needs it **done**
 * Check wether or not the dragon is alive when it arrives to the island
-* Break the dragon's shields
+* Break the dragon's shields **started**
 * Attack the dragon itself
 * Going to the core of the island to break the chaos shard
 
