@@ -2,48 +2,62 @@ local component = require("component")
 local computer = require("computer")
 local sides = require("sides")
 local robot = component.robot
-local nav = component.navigation
+local computer = require("computer")
 
-print("Importing modules...")
+local distToChaos = 3000
+local towerHeight = 131
 
--- Import modules
-local fileUtils = require("modules.fileUtils")
-local combatModule = require("modules.combatModule")
-local navModule = require("modules.navigationModule")
-local moveModule = require("modules.movementModule")
+local cx = 0
+local cz = 0
 
-navModule.setMovementModule(moveModule)
-moveModule.setReferences(navModule, robot, computer, sides)
+local east = 0 --0 = east 1=south 2=west 3=north
+local south = 1
+local west = 2
+local north = 3
 
--- move, simpleMove, rotate, checkEnergy are now inside the "movementModule"
+local x=2776
+local y=117
+local z=-4
+local direction = west
+
+move = require("modules.move")
+chaos = require("modules.combat")
+
+
 
 local function checkModules()
-    if fileUtils == nil then
-        print("Module 'fileUtils' could not be loaded. Please ensure that all modules are present inside 'home/modules/'")
-        os.exit()
-    end
-    if combatModule == nil then
-        print("Module 'combatModule' could not be loaded. Please ensure that all modules are present inside 'home/modules/'")
-        os.exit()
-    end
-    if navModule == nil then
-        print("Module 'navigationModule' could not be loaded. Please ensure that all modules are present inside 'home/modules/'")
-        os.exit()
-    end
-    if moveModule == nil then
+    
+    if move == nil then
         print("Module 'movementModule' could not be loaded. Please ensure that all modules are present inside 'home/modules/'")
+		os.exit()
+    end
+	if chaos == nil then
+        print("Module 'movementModule' could not be loaded. Please ensure that all modules are present inside 'home/modules/'")
+		os.exit()
     end
 end
+
 
 local function init()
     checkModules()
-    print("Localizing Chaos Guardian")
+	move.init(x,y,z,direction,robot,computer,sides)
+	chaos.init(distToChaos,towerHeight)
+	print("Localizing Chaos Guardian")
     print("Subscribe to FuzeIII") -- In case the robot does not survive, "Subscribe to FuzeIII" will be its last words of wisdom
-	x,y,z = navModule.getCoords()
-	navModule.moveToWorldCenter()
-	moveModule.rotate(sides.east)
-
-	moveModule.move(sides.front, fileUtils.getNextGuardian(x))
+	
+	print("My pos x,y,z,dir: ",move.x(),move.y(),move.z(),move.direction())
 end
 
+
+
 init()
+cx,cz = move.ToNextChaos(cx,cz,towerHeight,distToChaos)
+
+print("starting tower killing")
+
+chaos.killAllTower(cx,cz)
+
+
+os.exit()
+
+
