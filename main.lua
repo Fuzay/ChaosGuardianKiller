@@ -15,7 +15,7 @@ local south = 1
 local west = 2
 local north = 3
 
----- starting position of the not NEED TO BE SET BEFORE LAUNCHING THE CODE
+---- starting position of the bot NEED TO BE SET BEFORE LAUNCHING THE CODE
 local x=2776
 local y=117
 local z=-4
