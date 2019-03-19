@@ -25,8 +25,8 @@ local direction = west
 
 
 -- Calling modules
--- PLEASE BE SURE THAT YOUR MODULES ARE NAMED THE SAME WAY IN THIS REPO
--- Like movementModule and not move
+-- PLEASE ENSURE THAT YOUR MODULES ARE NAMED IN THE SAME WAY AS ON GITHUB.
+-- Like movementModule and not move,nav,combat,etc.
 move = require("modules.movementModule")
 chaos = require("modules.combatModule")
 
