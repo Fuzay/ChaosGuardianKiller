@@ -40,7 +40,7 @@ local function checkModules()-- checks if all files are presents
 end
 
 
-local function init()-- initialise all modules
+local function init()-- initialize all modules
     checkModules()
 	move.init(x,y,z,direction,robot,computer,sides)
 	chaos.init(distToChaos,towerHeight)
