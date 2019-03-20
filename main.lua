@@ -29,7 +29,6 @@ local direction = west
 -- Like movementModule and not move,nav,combat,etc.
 move = require("modules.movementModule")
 chaos = require("modules.combatModule")
-nav = require("modules.navigationModule") -- not used now but can be useful later
 
 
 
