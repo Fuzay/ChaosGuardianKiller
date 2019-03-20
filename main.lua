@@ -16,10 +16,10 @@ local west = 2
 local north = 3
 
 
----- starting position get by calling nav module 
-
-local navModule = require("modules.navigationModule") -- local call of module nav
-local x,y,z = navModule.getCoords() -- getCoords return a tuple with x,y,z coordinates
+---- starting position of the bot NEED TO BE SET BEFORE LAUNCHING THE CODE
+local x=2776
+local y=117
+local z=-4
 local direction = west
 -----
 
@@ -29,6 +29,7 @@ local direction = west
 -- Like movementModule and not move,nav,combat,etc.
 move = require("modules.movementModule")
 chaos = require("modules.combatModule")
+nav = require("modules.navigationModule") -- not used now but can be useful later
 
 
 
