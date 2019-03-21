@@ -15,6 +15,7 @@ local south = 1
 local west = 2
 local north = 3
 
+
 ---- starting position of the bot NEED TO BE SET BEFORE LAUNCHING THE CODE
 local x=2776
 local y=117
@@ -22,8 +23,12 @@ local z=-4
 local direction = west
 -----
 
-move = require("modules.move")
-chaos = require("modules.combat")
+
+-- Calling modules
+-- PLEASE ENSURE THAT YOUR MODULES ARE NAMED IN THE SAME WAY AS ON GITHUB.
+-- Like movementModule and not move,nav,combat,etc.
+move = require("modules.movementModule")
+chaos = require("modules.combatModule")
 
 
 
@@ -61,5 +66,3 @@ chaos.killAllTower(cx,cz)
 
 
 os.exit()
-
-
