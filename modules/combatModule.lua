@@ -1,7 +1,15 @@
 local chaos = {}
 
+local robot = require("component").robot
+local sides = require("sides")
+
 local distToChaos = 0
 local towerHeight = 0
+
+local east = 0 --0 = east 1=south 2=west 3=north
+local south = 1
+local west = 2
+local north = 3
 
 function chaos.init(Dist,Height)
 	distToChaos = Dist
@@ -27,6 +35,9 @@ function chaos.killAllTower(cx,cz)
 	move.To(cx*distToChaos-89,towerHeight+5,cz*distToChaos+21)--fly safe remember
 	move.To(cx*distToChaos-89,towerHeight,cz*distToChaos+21)
 	move.rotateTo(east)
+	if robot.detect(sides.front) == false then
+		return false
+		end
 	chaos.killATower()
 	
 	
@@ -95,6 +106,7 @@ function chaos.killAllTower(cx,cz)
 	move.rotateTo(west)
 	chaos.killATower()
 	
+	return true
 
 end
 

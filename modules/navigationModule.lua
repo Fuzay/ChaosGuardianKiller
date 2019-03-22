@@ -13,6 +13,7 @@ local function setMovementModule(movementModule)
 end
 
 local function moveToWorldCenter()
+	x,y,z = nav.getPosition()
     if z > 0 then
 		print("z positive => Rotating north")
 		moveModule.rotate(sides.north)
