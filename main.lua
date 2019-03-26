@@ -58,11 +58,14 @@ end
 
 
 init()
-cx,cz = move.ToNextChaos(cx,cz,towerHeight,distToChaos) -- moving to the first island using parameters at the top
+while true do
+	cx,cz = move.ToNextChaos(cx,cz,towerHeight,distToChaos) -- moving to the first island using parameters at the top
 
-print("starting tower killing")
+	print("starting tower killing")
 
-chaos.killAllTower(cx,cz)
-
+	if chaos.killAllTower(cx,cz) == false then
+		print("No Chaos guardian, Moving on to the next one")
+	end
+end
 
 os.exit()
