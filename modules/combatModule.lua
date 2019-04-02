@@ -30,6 +30,19 @@ function chaos.killATower()
 
 end
 
+function chaos.takeShards(cx,cz) -- breaking the chaos shards, you need to kill the dragon before
+	
+	move.To(cx*distToChaos-150,110,cz*distToChaos)
+	move.To(cx*distToChaos-150,1,cz*distToChaos)
+	move.To(cx*distToChaos-1,1,cz*distToChaos)
+	move.To(cx*distToChaos-1,80,cz*distToChaos)
+	move.rotateTo(east)
+	robot.swing(sides.front)
+	move.To(cx*distToChaos-1,1,cz*distToChaos)
+	os.sleep(42)
+
+end
+
 function chaos.killAllTower(cx,cz)
 	
 	move.To(cx*distToChaos-89,towerHeight+5,cz*distToChaos+21)--fly safe remember
