@@ -49,7 +49,7 @@ function chaos.killAllTower(cx,cz)
 	move.To(cx*distToChaos-39,towerHeight+5,cz*distToChaos+81)
 	move.To(cx*distToChaos-39,towerHeight,cz*distToChaos+81)
 	move.rotateTo(east)
-	chaos.killAToxer()
+	chaos.killATower()
 	
 	move.To(cx*distToChaos-2,towerHeight+5,cz*distToChaos+90)
 	move.To(cx*distToChaos-2,towerHeight,cz*distToChaos+90)
@@ -104,6 +104,46 @@ function chaos.killAllTower(cx,cz)
 	move.To(cx*distToChaos-85,towerHeight+5,cz*distToChaos-18)
 	move.To(cx*distToChaos-85,towerHeight,cz*distToChaos-18)
 	move.rotateTo(west)
+	chaos.killATower()
+	
+	move.To(cx*distToChaos-45,111+5,cz*distToChaos-9)
+	move.To(cx*distToChaos-45,111,cz*distToChaos-9)
+	move.rotateTo(east)
+	chaos.killATower()
+	
+	move.To(cx*distToChaos-36,111+5,cz*distToChaos+28)
+	move.To(cx*distToChaos-36,111,cz*distToChaos+28)
+	move.rotateTo(east)
+	chaos.killATower()
+	
+	move.To(cx*distToChaos-2,111+5,cz*distToChaos+45)
+	move.To(cx*distToChaos-2,111,cz*distToChaos+45)
+	move.rotateTo(east)
+	chaos.killATower()
+	
+	move.To(cx*distToChaos+33,111+5,cz*distToChaos+27)
+	move.To(cx*distToChaos+33,111,cz*distToChaos+27)
+	move.rotateTo(east)
+	chaos.killATower()
+	
+	move.To(cx*distToChaos+41,111+5,cz*distToChaos-10)
+	move.To(cx*distToChaos+41,111,cz*distToChaos-10)
+	move.rotateTo(east)
+	chaos.killATower()
+	
+	move.To(cx*distToChaos+19,111+5,cz*distToChaos-38)
+	move.To(cx*distToChaos+19,111,cz*distToChaos-38)
+	move.rotateTo(north)
+	chaos.killATower()
+	
+	move.To(cx*distToChaos-17,111+5,cz*distToChaos-40)
+	move.To(cx*distToChaos-17,111,cz*distToChaos-40)
+	move.rotateTo(west)
+	chaos.killATower()
+	
+	move.To(cx*distToChaos-43,111+5,cz*distToChaos-11)
+	move.To(cx*distToChaos-43,111,cz*distToChaos-11)
+	move.rotateTo(south)
 	chaos.killATower()
 	
 	return true
