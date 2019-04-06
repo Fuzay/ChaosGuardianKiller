@@ -1,3 +1,4 @@
+-- I think a blockling can use PSI !
 local component = require("component")
 local computer = require("computer")
 local sides = require("sides")
