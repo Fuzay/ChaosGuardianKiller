@@ -9,7 +9,7 @@ Little Project to automate Draconic Evolution Guardian fight. This project has b
 * Check wether or not the dragon is alive when it arrives to the island **done**
 * Break the dragon's shields **done (the dragon kill the robot if the dragon is loaded and the shiel is not killed after one attack)**
 * Attack the dragon itself
-* Going to the core of the island to break the chaos shard **done**
+* Going to the core of the island to break the chaos shard **done (need a pickaxe)**
 
 Currently the main challenge is to find a way for the robot to kill the dragon.
 Feel free to try it out yourself (maybe in a separated branch).
