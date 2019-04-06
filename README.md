@@ -4,14 +4,15 @@ Little Project to automate Draconic Evolution Guardian fight. This project has b
 
 ## TODO
 
-* Make the robot travel from anywhere to the dragon (multiples of 10 000) **done**
-* Make the robot charge itself when it needs it **done**
-* Check wether or not the dragon is alive when it arrives to the island
-* Break the dragon's shields **started**
+* Make the robot travel from anywhere to the dragon (multiples of 10 000) **done (you need to set the distance between two dragon)**
+* Make the robot charge itself when it needs it **done (need to give him charger solar and redstone block in this order)**
+* Check wether or not the dragon is alive when it arrives to the island **done**
+* Break the dragon's shields **done (the dragon kill the robot if the dragon is loaded and the shiel is not killed after one attack)**
 * Attack the dragon itself
-* Going to the core of the island to break the chaos shard
+* Going to the core of the island to break the chaos shard **done**
 
-Currently the main challenge is to find a way for the robot to break the shields. I'm currently looking into using PSI alongside OpenComputers, but we could potentially make the robot check every block arround 10 000 for Shield Blocks. It would be long, but it would work. Feel free to try it out yourself (maybe in a separated branch).
+Currently the main challenge is to find a way for the robot to kill the dragon.
+Feel free to try it out yourself (maybe in a separated branch).
 
 ## Dependencies
 
