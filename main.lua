@@ -2,7 +2,6 @@ local component = require("component")
 local computer = require("computer")
 local sides = require("sides")
 local robot = component.robot
-local computer = require("computer")
 
 local distToChaos = 3000 -- distance between each chaos guardian
 local towerHeight = 131 -- height of the healer
